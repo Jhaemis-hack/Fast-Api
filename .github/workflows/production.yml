@@ -29,8 +29,5 @@ jobs:
       - name: 🚀 Install Vercel CLI
         run: npm install -g vercel
 
-      - name: 🔑 Authenticate with Vercel
-        run: vercel login --token ${{ secrets.VERCEL_TOKEN }}
-
       - name: 🚀 Deploy to Vercel (Manual Trigger)
         run: vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
