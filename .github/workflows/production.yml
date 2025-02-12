@@ -1,15 +1,15 @@
 name: Deploy to Vercel via GitHub Actions
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
+    types:
+      - closed  # ✅ Triggers only when the PR is merged
 
 jobs:
   deploy:
+    if: github.event.pull_request.merged == true  # ✅ Ensures job runs only when the PR is merged
     runs-on: ubuntu-latest
     environment: production
     
